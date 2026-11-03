@@ -198,8 +198,8 @@ def pose_planning_example(output_dir: Optional[Path] = None):
     if output_dir is None:
         output_dir = _get_output_dir()
     config = MotionPlannerCfg.create(
-        robot="franka.yml",
-        scene_model="collision_test.yml",
+        robot="dual_arm.yml",
+        scene_model=None,
     )
     planner = MotionPlanner(config)
     planner.warmup(enable_graph=True, num_warmup_iterations=5)
@@ -251,8 +251,8 @@ def grasp_planning_example(output_dir: Optional[Path] = None):
     if output_dir is None:
         output_dir = _get_output_dir()
     config = MotionPlannerCfg.create(
-        robot="franka.yml",
-        scene_model="collision_test.yml",
+        robot="dual_arm.yml",
+        scene_model=None,
         max_goalset=10,
     )
     planner = MotionPlanner(config)
@@ -337,7 +337,7 @@ def grasp_planning_example(output_dir: Optional[Path] = None):
         return False
 
 
-def interactive_motion_planning(robot_file="franka.yml", scene_file="collision_test.yml", port=8080):
+def interactive_motion_planning(robot_file="dual_arm.yml", scene_file=None, port=8080):
     """Launch an interactive Viser viewer for motion planning.
 
     Provides a web-based 3D viewer where you can:
@@ -359,8 +359,10 @@ def interactive_motion_planning(robot_file="franka.yml", scene_file="collision_t
     config = MotionPlannerCfg.create(robot=robot_file, scene_model=scene_file)
     planner = MotionPlanner(config)
 
-    scene_cfg = config.scene_collision_cfg.scene_model
-    obstacle_frames = viser_viz.add_scene(scene_cfg, add_control_frames=True)
+    obstacle_frames = {}
+    if config.scene_collision_cfg is not None:
+        scene_cfg = config.scene_collision_cfg.scene_model
+        obstacle_frames = viser_viz.add_scene(scene_cfg, add_control_frames=True)
     old_obstacle_poses = {
         k: Pose.from_numpy(obstacle_frames[k].position, obstacle_frames[k].wxyz)
         for k in obstacle_frames.keys()
@@ -590,14 +592,14 @@ def main():
     parser.add_argument(
         "--robot",
         type=str,
-        default="franka.yml",
-        help="Robot config file (default: franka.yml)",
+        default="dual_arm.yml",
+        help="Robot config file (default: dual_arm.yml)",
     )
     parser.add_argument(
         "--scene",
         type=str,
-        default="collision_test.yml",
-        help="Scene config file (default: collision_test.yml)",
+        default=None,
+        help="Scene config file (default: None)",
     )
     parser.add_argument(
         "--port",

@@ -1,0 +1,97 @@
+# Visualisation
+
+mesh_files:
+  base:
+    visual:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/visual/ur10e/base.dae
+      material:
+        name: "LightGrey"
+        color: "0.7 0.7 0.7 1.0"
+    collision:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/collision/ur10e/base.stl
+
+  shoulder:
+    visual:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/visual/ur10e/shoulder.dae
+      material:
+        name: "LightGrey"
+        color: "0.7 0.7 0.7 1.0"
+    collision:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/collision/ur10e/shoulder.stl
+
+  upper_arm:
+    visual:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/visual/ur10e/upperarm.dae
+      material:
+        name: "LightGrey"
+        color: "0.7 0.7 0.7 1.0"
+    collision:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/collision/ur10e/upperarm.stl
+      mesh_files:
+
+  forearm:
+    visual:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/visual/ur10e/forearm.dae
+      material:
+        name: "LightGrey"
+        color: "0.7 0.7 0.7 1.0"
+    collision:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/collision/ur10e/forearm.stl
+
+  wrist_1:
+    visual:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/visual/ur10e/wrist1.dae
+      material:
+        name: "LightGrey"
+        color: "0.7 0.7 0.7 1.0"
+    collision:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/collision/ur10e/wrist1.stl
+    visual_offset: -0.135
+
+  wrist_2:
+    visual:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/visual/ur10e/wrist2.dae
+      material:
+        name: "LightGrey"
+        color: "0.7 0.7 0.7 1.0"
+    collision:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/collision/ur10e/wrist2.stl
+    visual_offset: -0.12
+
+  wrist_3:
+    visual:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/visual/ur10e/wrist3.dae
+      material:
+        name: "LightGrey"
+        color: "0.7 0.7 0.7 1.0"
+    collision:
+      mesh:
+        package: dual_arm_pkg
+        path: meshes/collision/ur10e/wrist3.stl
+    visual_offset: -0.1168

@@ -1,0 +1,107 @@
+# Lula robot description for the right UR10e + Robotiq 2F-140.
+# Generated from config/dual_arm_real_v2.urdf.xacro -- link names and the
+# 0.6123 / 0.5712 link lengths come from that URDF's calibrated joint origins.
+#
+# SPHERES ARE A STARTING POINT, NOT VERIFIED GEOMETRY. Load this in Isaac Sim's
+# Lula Robot Description Editor and check every sphere against the mesh before
+# planning with it. Under-covered geometry plans straight through obstacles.
+api_version: 1.0
+
+cspace:
+    - right_shoulder_pan_joint
+    - right_shoulder_lift_joint
+    - right_elbow_joint
+    - right_wrist_1_joint
+    - right_wrist_2_joint
+    - right_wrist_3_joint
+
+root_link: right_base_link
+subtree_root_link: right_base_link
+
+default_q: [0.0, -1.5708, 1.5708, -1.5708, -1.5708, 0.0]
+
+# The gripper is not in the cspace: right_finger_joint is driven separately and the
+# other five finger joints are URDF mimics of it. Held at the open position.
+cspace_to_urdf_rules:
+    - {name: right_finger_joint, rule: fixed, value: 0.0}
+    - {name: right_left_inner_finger_joint,   rule: fixed, value: 0.0}
+    - {name: right_left_inner_knuckle_joint,  rule: fixed, value: 0.0}
+    - {name: right_right_outer_knuckle_joint, rule: fixed, value: 0.0}
+    - {name: right_right_inner_finger_joint,  rule: fixed, value: 0.0}
+    - {name: right_right_inner_knuckle_joint, rule: fixed, value: 0.0}
+
+composite_task_spaces: []
+
+collision_spheres:
+  right_base_link_inertia:
+    - center: [0.0, 0.0, 0.04]
+      radius: 0.085
+    - center: [0.0, 0.0, 0.14]
+      radius: 0.080
+  right_shoulder_link:
+    - center: [0.0, 0.0, 0.0]
+      radius: 0.085
+    - center: [0.0, -0.08, 0.0]
+      radius: 0.080
+  right_upper_arm_link:
+    - center: [0.0, 0.0, 0.18]
+      radius: 0.080
+    - center: [-0.10, 0.0, 0.18]
+      radius: 0.072
+    - center: [-0.21, 0.0, 0.18]
+      radius: 0.072
+    - center: [-0.31, 0.0, 0.18]
+      radius: 0.072
+    - center: [-0.41, 0.0, 0.18]
+      radius: 0.072
+    - center: [-0.51, 0.0, 0.18]
+      radius: 0.072
+    - center: [-0.6123, 0.0, 0.18]
+      radius: 0.075
+  right_forearm_link:
+    - center: [0.0, 0.0, 0.0]
+      radius: 0.065
+    - center: [-0.10, 0.0, 0.0]
+      radius: 0.058
+    - center: [-0.20, 0.0, 0.0]
+      radius: 0.058
+    - center: [-0.30, 0.0, 0.0]
+      radius: 0.058
+    - center: [-0.40, 0.0, 0.0]
+      radius: 0.058
+    - center: [-0.5712, 0.0, 0.0]
+      radius: 0.062
+  right_wrist_1_link:
+    - center: [0.0, 0.0, 0.0]
+      radius: 0.060
+    - center: [0.0, -0.06, 0.0]
+      radius: 0.058
+  right_wrist_2_link:
+    - center: [0.0, 0.0, 0.0]
+      radius: 0.058
+    - center: [0.0, 0.0, 0.06]
+      radius: 0.055
+  right_wrist_3_link:
+    - center: [0.0, 0.0, 0.0]
+      radius: 0.050
+  right_robotiq_140_base_link:
+    - center: [0.0, 0.0, 0.03]
+      radius: 0.055
+    - center: [0.0, 0.0, 0.08]
+      radius: 0.050
+  right_left_outer_finger:
+    - center: [0.0, 0.0, 0.03]
+      radius: 0.028
+  right_left_inner_finger:
+    - center: [0.0, 0.0, 0.02]
+      radius: 0.025
+    - center: [0.0, 0.0, 0.055]
+      radius: 0.022
+  right_right_outer_finger:
+    - center: [0.0, 0.0, 0.03]
+      radius: 0.028
+  right_right_inner_finger:
+    - center: [0.0, 0.0, 0.02]
+      radius: 0.025
+    - center: [0.0, 0.0, 0.055]
+      radius: 0.022

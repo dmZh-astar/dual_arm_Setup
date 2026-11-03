@@ -1,0 +1,225 @@
+# cuRobo robot configuration -- bimanual UR10e + Robotiq 2F-140.
+#
+# Generated from config/dual_arm_real_v2.urdf.xacro. Link/joint names and the
+# self_collision_ignore adjacencies are read from that URDF and verified against
+# it. SPHERE RADII AND CENTERS ARE UNVERIFIED ESTIMATES -- see
+# isaac/right_arm_descriptor.yaml and tune them in Isaac Sim before relying on
+# this for collision avoidance.
+#
+# Dual-arm: base_link is `world`, so both arms live in one kinematic tree and
+# cuRobo checks arm-vs-arm collision natively. link_names lists both TCPs.
+# The two base links are deliberately NOT in each other's ignore list.
+#
+# table_link and cobot_frame_link are intentionally absent -- static environment
+# belongs in the world collision config, not the robot body.
+robot_cfg:
+  kinematics:
+    urdf_path: dual_arm.urdf
+    asset_root_path: ''
+    usd_path: dual_arm.usd
+    usd_robot_root: /dual_arm
+    base_link: world
+    ee_link: right_tcp
+    link_names: [right_tcp, left_tcp]
+    lock_joints: {right_finger_joint: 0.0, right_left_inner_finger_joint: 0.0, right_left_inner_knuckle_joint: 0.0,
+      right_right_outer_knuckle_joint: 0.0, right_right_inner_finger_joint: 0.0, right_right_inner_knuckle_joint: 0.0,
+      left_finger_joint: 0.0, left_left_inner_finger_joint: 0.0, left_left_inner_knuckle_joint: 0.0, left_right_outer_knuckle_joint: 0.0,
+      left_right_inner_finger_joint: 0.0, left_right_inner_knuckle_joint: 0.0}
+    extra_links: {}
+    collision_link_names: &id001 [right_base_link_inertia, right_shoulder_link, right_upper_arm_link,
+      right_forearm_link, right_wrist_1_link, right_wrist_2_link, right_wrist_3_link, right_robotiq_140_base_link,
+      right_left_outer_finger, right_left_inner_finger, right_right_outer_finger, right_right_inner_finger,
+      left_base_link_inertia, left_shoulder_link, left_upper_arm_link, left_forearm_link, left_wrist_1_link,
+      left_wrist_2_link, left_wrist_3_link, left_robotiq_140_base_link, left_left_outer_finger, left_left_inner_finger,
+      left_right_outer_finger, left_right_inner_finger]
+    collision_spheres:
+      right_base_link_inertia:
+      - center: [0.0, 0.0, 0.04]
+        radius: 0.085
+      - center: [0.0, 0.0, 0.14]
+        radius: 0.08
+      right_shoulder_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.085
+      - center: [0.0, -0.08, 0.0]
+        radius: 0.08
+      right_upper_arm_link:
+      - center: [0.0, 0.0, 0.18]
+        radius: 0.08
+      - center: [-0.1, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.21, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.31, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.41, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.51, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.6123, 0.0, 0.18]
+        radius: 0.075
+      right_forearm_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.065
+      - center: [-0.1, 0.0, 0.0]
+        radius: 0.058
+      - center: [-0.2, 0.0, 0.0]
+        radius: 0.058
+      - center: [-0.3, 0.0, 0.0]
+        radius: 0.058
+      - center: [-0.4, 0.0, 0.0]
+        radius: 0.058
+      - center: [-0.5712, 0.0, 0.0]
+        radius: 0.062
+      right_wrist_1_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.06
+      - center: [0.0, -0.06, 0.0]
+        radius: 0.058
+      right_wrist_2_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.058
+      - center: [0.0, 0.0, 0.06]
+        radius: 0.055
+      right_wrist_3_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.05
+      right_robotiq_140_base_link:
+      - center: [0.0, 0.0, 0.03]
+        radius: 0.055
+      - center: [0.0, 0.0, 0.08]
+        radius: 0.05
+      right_left_outer_finger:
+      - center: [0.0, 0.0, 0.03]
+        radius: 0.028
+      right_left_inner_finger:
+      - center: [0.0, 0.0, 0.02]
+        radius: 0.025
+      - center: [0.0, 0.0, 0.055]
+        radius: 0.022
+      right_right_outer_finger:
+      - center: [0.0, 0.0, 0.03]
+        radius: 0.028
+      right_right_inner_finger:
+      - center: [0.0, 0.0, 0.02]
+        radius: 0.025
+      - center: [0.0, 0.0, 0.055]
+        radius: 0.022
+      left_base_link_inertia:
+      - center: [0.0, 0.0, 0.04]
+        radius: 0.085
+      - center: [0.0, 0.0, 0.14]
+        radius: 0.08
+      left_shoulder_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.085
+      - center: [0.0, -0.08, 0.0]
+        radius: 0.08
+      left_upper_arm_link:
+      - center: [0.0, 0.0, 0.18]
+        radius: 0.08
+      - center: [-0.1, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.21, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.31, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.41, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.51, 0.0, 0.18]
+        radius: 0.072
+      - center: [-0.6123, 0.0, 0.18]
+        radius: 0.075
+      left_forearm_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.065
+      - center: [-0.1, 0.0, 0.0]
+        radius: 0.058
+      - center: [-0.2, 0.0, 0.0]
+        radius: 0.058
+      - center: [-0.3, 0.0, 0.0]
+        radius: 0.058
+      - center: [-0.4, 0.0, 0.0]
+        radius: 0.058
+      - center: [-0.5712, 0.0, 0.0]
+        radius: 0.062
+      left_wrist_1_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.06
+      - center: [0.0, -0.06, 0.0]
+        radius: 0.058
+      left_wrist_2_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.058
+      - center: [0.0, 0.0, 0.06]
+        radius: 0.055
+      left_wrist_3_link:
+      - center: [0.0, 0.0, 0.0]
+        radius: 0.05
+      left_robotiq_140_base_link:
+      - center: [0.0, 0.0, 0.03]
+        radius: 0.055
+      - center: [0.0, 0.0, 0.08]
+        radius: 0.05
+      left_left_outer_finger:
+      - center: [0.0, 0.0, 0.03]
+        radius: 0.028
+      left_left_inner_finger:
+      - center: [0.0, 0.0, 0.02]
+        radius: 0.025
+      - center: [0.0, 0.0, 0.055]
+        radius: 0.022
+      left_right_outer_finger:
+      - center: [0.0, 0.0, 0.03]
+        radius: 0.028
+      left_right_inner_finger:
+      - center: [0.0, 0.0, 0.02]
+        radius: 0.025
+      - center: [0.0, 0.0, 0.055]
+        radius: 0.022
+    collision_sphere_buffer: 0.005
+    extra_collision_spheres: {}
+    self_collision_ignore:
+      right_base_link_inertia: [right_shoulder_link]
+      right_shoulder_link: [right_base_link_inertia, right_upper_arm_link]
+      right_upper_arm_link: [right_forearm_link, right_shoulder_link]
+      right_forearm_link: [right_upper_arm_link, right_wrist_1_link]
+      right_wrist_1_link: [right_forearm_link, right_wrist_2_link]
+      right_wrist_2_link: [right_wrist_1_link, right_wrist_3_link]
+      right_wrist_3_link: [right_robotiq_140_base_link, right_wrist_2_link]
+      right_robotiq_140_base_link: [right_left_outer_finger, right_right_outer_finger, right_wrist_3_link]
+      right_left_outer_finger: [right_left_inner_finger, right_robotiq_140_base_link]
+      right_left_inner_finger: [right_left_outer_finger]
+      right_right_outer_finger: [right_right_inner_finger, right_robotiq_140_base_link]
+      right_right_inner_finger: [right_right_outer_finger]
+      left_base_link_inertia: [left_shoulder_link]
+      left_shoulder_link: [left_base_link_inertia, left_upper_arm_link]
+      left_upper_arm_link: [left_forearm_link, left_shoulder_link]
+      left_forearm_link: [left_upper_arm_link, left_wrist_1_link]
+      left_wrist_1_link: [left_forearm_link, left_wrist_2_link]
+      left_wrist_2_link: [left_wrist_1_link, left_wrist_3_link]
+      left_wrist_3_link: [left_robotiq_140_base_link, left_wrist_2_link]
+      left_robotiq_140_base_link: [left_left_outer_finger, left_right_outer_finger, left_wrist_3_link]
+      left_left_outer_finger: [left_left_inner_finger, left_robotiq_140_base_link]
+      left_left_inner_finger: [left_left_outer_finger]
+      left_right_outer_finger: [left_right_inner_finger, left_robotiq_140_base_link]
+      left_right_inner_finger: [left_right_outer_finger]
+    self_collision_buffer: {right_base_link_inertia: 0.0, right_shoulder_link: 0.0, right_upper_arm_link: 0.0,
+      right_forearm_link: 0.0, right_wrist_1_link: 0.0, right_wrist_2_link: 0.0, right_wrist_3_link: 0.0,
+      right_robotiq_140_base_link: 0.0, right_left_outer_finger: 0.0, right_left_inner_finger: 0.0, right_right_outer_finger: 0.0,
+      right_right_inner_finger: 0.0, left_base_link_inertia: 0.0, left_shoulder_link: 0.0, left_upper_arm_link: 0.0,
+      left_forearm_link: 0.0, left_wrist_1_link: 0.0, left_wrist_2_link: 0.0, left_wrist_3_link: 0.0,
+      left_robotiq_140_base_link: 0.0, left_left_outer_finger: 0.0, left_left_inner_finger: 0.0, left_right_outer_finger: 0.0,
+      left_right_inner_finger: 0.0}
+    use_global_cumul: true
+    mesh_link_names: *id001
+    cspace:
+      joint_names: [right_shoulder_pan_joint, right_shoulder_lift_joint, right_elbow_joint, right_wrist_1_joint,
+        right_wrist_2_joint, right_wrist_3_joint, left_shoulder_pan_joint, left_shoulder_lift_joint, left_elbow_joint,
+        left_wrist_1_joint, left_wrist_2_joint, left_wrist_3_joint]
+      retract_config: [0.0, -1.5708, 1.5708, -1.5708, -1.5708, 0.0, 0.0, -1.5708, 1.5708, -1.5708, -1.5708,
+        0.0]
+      null_space_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      cspace_distance_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      max_acceleration: 15.0
+      max_jerk: 500.0
