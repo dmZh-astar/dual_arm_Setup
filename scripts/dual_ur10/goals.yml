@@ -1,0 +1,21 @@
+# Example goals for send_goal.py:
+#
+#   python scripts/send_goal.py --goal-poses scripts/goals.yml
+#
+# A list of goals, visited in order. Each goal gives one pose per tool frame as
+# [x, y, z, qw, qx, qy, qz]: position in metres and a wxyz quaternion, both in the cuRobo
+# world frame (base_link "world" in dual_arm.yml). Every goal must list both left_tcp and
+# right_tcp; to keep an arm still, repeat its pose from the previous goal. The robot stops
+# briefly at each goal.
+
+# Goal 1: move both arms to their working poses.
+- left_tcp:  [-0.1124, 0.2118, 1.2479, 0.4716, -0.5741, 0.5579, -0.3698]
+  right_tcp: [0.0386, -0.0845, 1.0578, 0.6451, -0.1423, -0.7181, -0.2189]
+
+# Goal 2: left arm holds; right arm moves across (same orientation).
+- left_tcp:  [-0.1124, 0.2118, 1.2479, 0.4716, -0.5741, 0.5579, -0.3698]
+  right_tcp: [-0.1131, 0.1230, 1.1040, 0.6451, -0.1423, -0.7181, -0.2189]
+
+# # Goal 3: left arm holds; right arm returns to its goal 1 pose.
+# - left_tcp:  [-0.1124, 0.2118, 1.2479, 0.4716, -0.5741, 0.5579, -0.3698]
+#   right_tcp: [0.0386, -0.0845, 1.0578, 0.6451, -0.1423, -0.7181, -0.2189]
