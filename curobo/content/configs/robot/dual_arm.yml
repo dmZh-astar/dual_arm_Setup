@@ -1,6 +1,6 @@
 kinematics:
   add_object_link: false
-  asset_root_path: /home/rosi/ZD/curobo/curobo/content/assets/robot/dual_arm_description
+  asset_root_path: robot/dual_arm_description
   base_link: world
   collision_link_names:
   - cobot_frame_link
@@ -5100,6 +5100,6 @@ kinematics:
   tool_frames:
   - left_tcp
   - right_tcp
-  urdf_path: /home/rosi/ZD/curobo/curobo/content/assets/robot/dual_arm_description/dual_arm.urdf
+  urdf_path: robot/dual_arm_description/dual_arm.urdf
   use_external_assets: false
   use_global_cumul: true
